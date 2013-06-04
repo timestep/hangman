@@ -1,12 +1,12 @@
 words = ["lemonade", "apple", "phone", "soda"]
 word = words[rand(4)]
-array = word.split("")
+answer = word.split("")
 
 word.include? gets.chomp
 
-guess = ""
+guess = []
 word.length.times do
-	guess = guess + "_ "
+	guess = guess + ["_ "]
 end
-puts guess
+puts guess.join(" ")
 
