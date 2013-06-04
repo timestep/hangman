@@ -10,7 +10,10 @@ guess = []
 word.length.times do
 	guess = guess + ["_"]
 end
-puts guess.join(" ")
+
+puts
+puts "H A N G   M A N"
+puts
 
 #set array for used letters
 $used = []
@@ -27,11 +30,14 @@ end
 win = 8
 i =0
 while true 
-	puts
-	puts
+	puts guess.join(" ")
+	puts "Make a guess:"
 
 	letter_guess = gets.chomp.downcase
 	send_to_used(letter_guess)
+	puts
+	puts
+	puts
 
 	check = false
 
@@ -46,8 +52,6 @@ while true
 		i += 1
 	end
 
-	puts guess.join(" ")
-
 	if guess == answer
 		puts "You won!"
 		break
@@ -61,8 +65,5 @@ while true
 		puts "You lost! Sorry but you suck."
 		break
 	end
-
-	puts
-	puts
 
 end
