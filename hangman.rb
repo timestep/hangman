@@ -30,7 +30,7 @@ while true
 	puts
 	puts
 
-	letter_guess = gets.chomp
+	letter_guess = gets.chomp.downcase
 	send_to_used(letter_guess)
 
 	check = false
