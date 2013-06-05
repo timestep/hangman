@@ -16,13 +16,13 @@ puts "H A N G   M A N"
 puts
 
 #set array for used letters
-$used = []
+used = []
 def send_to_used(used_letter)
-	if $used.index(used_letter)
+	if used.index(used_letter)
 		puts "You already used that letter."
 	else
-		$used << used_letter
-		$used = $used.sort
+		used << used_letter
+		used = $used.sort
 	end
 end
 
