@@ -22,16 +22,21 @@ class Hangman
 	end
 
 	def guess(string)
-		send_to_used(string)
-		@guess = false
-		0.upto(WORD.length-1) do |x|
-			if @answer[x] == string
-				@display[x] = string
-				@guess = true
+		if ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"].index string 
+		
+			send_to_used(string)
+			@guess = false
+			0.upto(WORD.length-1) do |x|
+				if @answer[x] == string
+					@display[x] = string
+					@guess = true
+				end
 			end
-		end
-		if @guess == false
-			@guesses_left -= 1
+			if @guess == false
+				@guesses_left -= 1
+			end
+		else 
+			puts "Please enter a single letter."
 		end
 	end
 
@@ -47,33 +52,3 @@ class Hangman
 		puts "These are the letters you have guessed already: [ #{@used.join(", ")} ]"
 	end
 end
-
-class PlayHangman
-
-	def initialize
-		@game = Hangman.new
-		puts "\n\nH A N G    M A N\n\n"
-		@game.show_display
-		while true
-			if @game.guesses_left == 0
-				puts "You lost!"
-				break
-			elsif @game.answer == @game.display 
-				puts "You won!"
-				break
-			else
-				puts "Make a guess:"
-				@game.guess(gets.chomp.downcase)
-				puts "\n\n"
-				@game.show_display
-				@game.show_guesses_left
-				@game.show_guessed_letters
-			end
-		end
-	end
-end
-
-
-
-
-PlayHangman.new
